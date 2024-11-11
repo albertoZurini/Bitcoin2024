@@ -11,15 +11,25 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.hce_app.parser.NDEFTools
 import java.io.IOException
@@ -53,6 +63,42 @@ class NFCReaderActivity : ComponentActivity() {
                 }
             }
         } else {
+
+            setContent {
+                Surface(modifier = Modifier.fillMaxSize()) {
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Center
+                        ) {
+                            // Display NFC icon
+                            Icon(
+                                painter = painterResource(id = R.drawable.nfc), // Replace with your NFC icon resource
+                                contentDescription = "NFC Icon",
+                                modifier = Modifier.size(128.dp), // Adjust size as needed
+                                tint = Color.Gray // Choose a color as per your theme
+                            )
+
+                            Spacer(modifier = Modifier.height(16.dp)) // Space between icon and text
+
+                            // Display text "BTC Receiver"
+                            Text(
+                                text = "BTC\nReceiver",
+                                textAlign = TextAlign.Center,
+                                fontSize = 36.sp,
+                                fontWeight = FontWeight.ExtraBold,
+                                color = Color.Gray
+                            )
+                        }
+                    }
+                }
+            }
+
+
+            /*
             setContent {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     Box(
@@ -69,6 +115,7 @@ class NFCReaderActivity : ComponentActivity() {
                     }
                 }
             }
+            */
         }
     }
 
