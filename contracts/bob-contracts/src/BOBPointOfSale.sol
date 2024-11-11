@@ -49,14 +49,9 @@ contract BOBPointOfSale is IBOBPointOfSale {
      */
     function initializePayment(uint256 btcAmount, uint256 usdcAmount) external override {
         uint256 paymentId = nextPaymentId++;
-        
-        payments[paymentId] = Payment({
-            btcAmount: btcAmount,
-            usdcAmount: usdcAmount,
-            buyer: msg.sender,
-            isPaid: false,
-            isRefunded: false
-        });
+
+        payments[paymentId] =
+            Payment({btcAmount: btcAmount, usdcAmount: usdcAmount, buyer: msg.sender, isPaid: false, isRefunded: false});
 
         emit PaymentInitialized(paymentId, btcAmount, usdcAmount, msg.sender);
     }
@@ -77,11 +72,11 @@ contract BOBPointOfSale is IBOBPointOfSale {
 
         // Complete the BTC sell order in HelloBitcoin
         helloBitcoin.completeBtcSellOrder(orderId, transaction, proof);
-        
+
         // Mark payment as completed and transfer USDC to the seller
         payment.isPaid = true;
         usdcToken.safeTransfer(seller, payment.usdcAmount);
-        
+
         emit PaymentCompleted(paymentId, msg.sender);
     }
 
@@ -95,7 +90,7 @@ contract BOBPointOfSale is IBOBPointOfSale {
 
         payment.isRefunded = true;
         usdcToken.safeTransfer(payment.buyer, payment.usdcAmount);
-        
+
         emit PaymentRefunded(paymentId, payment.buyer);
     }
 
