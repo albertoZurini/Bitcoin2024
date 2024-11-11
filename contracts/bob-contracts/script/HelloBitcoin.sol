@@ -20,7 +20,7 @@ contract HelloWorldScript is Script {
 
         HelloBitcoin helloBitcoin = new HelloBitcoin(relay, usdt);
 
-        new BOBPointOfSale(address(helloBitcoin), IERC20(usdt), address(this));
+        new BOBPointOfSale(helloBitcoin, IERC20(usdt), address(this));
 
         vm.stopBroadcast();
     }
