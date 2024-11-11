@@ -6,7 +6,8 @@ with open("generator/args.txt", "r") as f:
 
 script = "cd /ciao/verifier && zokrates compile -i root.zok && " +\
 f"zokrates setup && zokrates compute-witness -a {args} && " +\
-"zokrates generate-proof && zokrates export-verifier && zokrates verify"
+"zokrates generate-proof && zokrates export-verifier && " +\
+"echo '\n\n\n ====== NOW THE GOVERNMENT CHECKS THE STATEMENT ===== \n\n\n' && zokrates verify"
 
 with open("script.sh", "w") as f:
     f.write(script)

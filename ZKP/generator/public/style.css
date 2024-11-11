@@ -1,0 +1,13 @@
+.ant-btn-primary {
+  background: #1677ff !important;
+}
+a{
+  color: #1677ff !important;
+}
+.ant-form-item-label{
+  padding-bottom: 4px !important;
+}
+/* Poppins font */
+@import url(https://fonts.googleapis.com/css?family=Poppins");
+
+* {font-family: 'Poppins' !important}

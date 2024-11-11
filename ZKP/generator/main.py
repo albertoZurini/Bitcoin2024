@@ -23,12 +23,21 @@ def generate_key():
 
 # Example usage
 if __name__ == "__main__":
+    import sys
+
+    # Ensure exactly 5 numbers are provided
+    if len(sys.argv) != 6:
+        print("Please provide exactly 5 numbers.")
+        sys.exit(1)
+
+    transactions = [int(arg) for arg in sys.argv[1:6]]
+
     HOW_MANY = 10
     key = generate_key()  # The encryption key
     he = SimpleHomomorphicEncryption(key)
 
     # Original numbers
-    transactions = [10, 15, 20, -10, 10]
+    #transactions = [10, 15, 20, -10, 10]
     random.shuffle(transactions)
     cleartext_amounts = [] #transactions
 

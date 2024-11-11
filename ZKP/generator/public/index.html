@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Gift Aid History in multi-level drawer</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="theme-color" content="#000000">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="flex flex-col p-8 m-8 shadow-lg rounded-lg max-w-[1200px]">
+    <div class="flex flex-start justify-between ">
+
+      <div class="flex gap-8 flex-wrap">
+        <div class="flex flex-col gap-1">
+          <text class="text-xs opacity-50">Gift Aid Donations</text>
+          <div>
+            <p class="text-lg font-semibold">
+              <i class="ph-bold ph-check-circle"></i>
+              Eligible
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+          <p class="text-xs opacity-50">Status</p>
+          <p class="text-sm font-semibold py-0.5 px-3 bg-green-50 border-green-500 border-[1px] rounded-lg">Valid</p>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <p class="text-xs opacity-50">Valid From</p>
+          <p class="text-sm font-semibold py-0.5">12/12/2024</p>
+        </div>
+
+<!--         <div class="flex flex-col gap-2">
+          <p class="text-xs opacity-50">Declared Via</p>
+          <p class="text-sm font-semibold py-0.5">Web Form</p>
+        </div> -->
+      </div>
+
+      <!--ant here-->
+      <div id="antdrawer" />
+    </div>
+    <script>
+      const mountNode = document.getElementById('antdrawer');
+    </script>
+    <!--end of ant-->
+  </div>
+
+  <div class="flex flex-wrap gap-4 pt-4 mt-4 border-t border-gray-300">
+    <div class="flex flex-col gap-1 pr-4 min-w-[120px] border-r border-gray-300">
+      <text class="text-xs opacity-50">Total Claimed</text>
+      <div>
+        <p class="text-xl font-semibold" id="total">
+          $350
+        </p>
+      </div>
+    </div>
+
+    <!--                <div class="flex flex-col gap-1 pr-4 min-w-[120px] border-r border-gray-300">
+                  <text class="text-xs opacity-50">Claimed in this Declaration</text>
+                  <div>
+                    <p class="text-md font-semibold">
+                      £1,234
+                    </p>
+                  </div>
+                </div> 
+
+    <div class="flex flex-col gap-1 pr-4 min-w-[120px] border-r border-gray-300">
+      <text class="text-xs opacity-50">Awaiting Submission</text>
+      <div>
+        <p class="text-xl font-semibold">
+          $350
+        </p>
+      </div>
+    </div>-->
+
+    <div class="flex flex-col grow gap-1 border-gray-300 place-self-end items-end">
+      <text class="text-xs opacity-50">Gift Aid Claim Stats for Fiscal Year:</text>
+      <div>
+        <!--ant here-->
+        <div id="antselect" />
+      </div>
+      <script>
+        const mountSelect = document.getElementById('antselect');
+      </script>
+      <!--end of ant-->
+    </div>
+  </div>
+
+  </div>
+
+  </div>
+
+  <div class="flex flex-col p-8 m-8 gap-8 shadow-lg rounded-lg max-w-[1200px]">
+    <div class="flex justify-between w-full items-center">      
+      <h4 class="font-semibold">Donation Tax Statements</h4>
+      <div class="flex gap-2 px-4 py-2 border rounded-lg w-fit hover:text-sky-600 hover:border-sky-600 items-center text-sm duration-300 cursor-pointer" onclick="submitTax()">
+        <i class="ph-bold ph-upload-simple"></i> Submit tax declaration</div>
+    </div>
+
+    <!--ant here-->
+    <div id="anttable" />
+  </div>
+  <script>
+    const mountTable = document.getElementById('anttable');
+
+    async function submitTax(){
+      await fetch("/api")
+      alert("Tax declaration submitted!")
+    }
+  </script>
+  <!--end of ant-->
+
+  </div>
+
+</body>
+
+</html>
+<!-- partial -->
+  <script src='https://unpkg.com/react@18/umd/react.development.js'></script>
+<script src='https://unpkg.com/react-dom@18/umd/react-dom.development.js'></script>
+<script src='https://unpkg.com/dayjs@1/dayjs.min.js'></script>
+<script src='https://unpkg.com/antd@5.12.4/dist/antd-with-locales.min.js'></script>
+<script src='https://unpkg.com/@ant-design/icons/dist/index.umd.js'></script>
+<script src='https://unpkg.com/react-router-dom/dist/umd/react-router-dom.production.min.js'></script>
+<script src='https://unpkg.com/react-router/dist/umd/react-router.production.min.js'></script><script type="module" src="./script.js"></script>
+
+</body>
+</html>
