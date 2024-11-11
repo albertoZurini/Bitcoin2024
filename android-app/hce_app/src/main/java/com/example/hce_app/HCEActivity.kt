@@ -104,14 +104,14 @@ class HCEActivity : ComponentActivity() {
 
     private fun setNFCMessage(message: String = "") {
         // Combine all the data into a metamask url
-        var urlToCast: String = "https://wrqdv-lqaaa-aaaak-qtpwa-cai.icp0.io/send?address=rh7rl-ah7re-omr2b-tvrei-me7hw-gojty-36z47-si6hs-mktds-rhiq5-iqe&amount=0.04321"
-        /*
+        var urlToCast: String = ""
+
         if(message.length == 0) {
             urlToCast = "web+stellar:$address?amount=$amount";
         } else {
             urlToCast = message
         }
-        */
+
         Log.i(TAG, urlToCast)
         if (TextUtils.isEmpty(urlToCast)) {
             Toast.makeText(

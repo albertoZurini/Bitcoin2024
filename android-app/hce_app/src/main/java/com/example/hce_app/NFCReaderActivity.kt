@@ -60,7 +60,7 @@ class NFCReaderActivity : ComponentActivity() {
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
-                            text = "ICP\nReceiver",
+                            text = "BTC\nReceiver",
                             modifier = Modifier.fillMaxWidth(),
                             textAlign = TextAlign.Center,
                             fontSize = 56.sp,
