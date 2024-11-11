@@ -1,0 +1,327 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<style>
+    @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(circle, #333333, #1a1a1a);
+
+}
+
+html, body {
+  overflow: hidden !important;
+  margin: 0;
+}
+
+
+.neon-btn {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin: 40px 0;
+
+  letter-spacing: 4px;
+
+  border: 2px solid rgba(255,255,255,.25);
+}
+
+.neon-btn.red {
+  color: #f40303;
+}
+
+.neon-btn.green {
+  color: #47f403;
+  transition: all 1s;
+}
+
+.animated-neon {
+  animation: greenGlow 1.4s ease-in-out infinite;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes greenGlow {
+  0% {
+    background: rgba(0,0,0,0);
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0);
+
+  }
+  100% {
+    background: #F40303;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #F40303,
+                0 0 25px #F40303,
+                0 0 50px #F40303,
+                0 0 100px #F40303;
+  
+  }
+}
+/*
+.neon-btn:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+}
+
+.neon-btn.red:hover {
+  background: #f40303;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #f40303,
+              0 0 25px #f40303,
+              0 0 50px #f40303,
+              0 0 100px #f40303;
+}
+*/
+.neon-btn span.animated {
+  position: absolute;
+  display: block;
+}
+
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --neon-size: 10px;
+}
+.neon-btn span.animated:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: var(--neon-size);
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 2s linear infinite;
+}
+
+.neon-btn span.animated:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: var(--neon-size);
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 2s linear infinite;
+  animation-delay: .5s
+}
+
+.neon-btn span.animated:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: var(--neon-size);
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 2s linear infinite;
+  animation-delay: 1s
+}
+
+.neon-btn span.animated:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: var(--neon-size);
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 2s linear infinite;
+  animation-delay: 1.5s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+
+.neon-btn.green span.animated:nth-child(1) {
+  background: linear-gradient(90deg, transparent, #47f403);
+}
+.neon-btn.green span.animated:nth-child(2) {
+  background: linear-gradient(180deg, transparent, #47f403);
+}
+.neon-btn.green span.animated:nth-child(3) {
+  background: linear-gradient(270deg, transparent, #47f403);
+}
+.neon-btn.green span.animated:nth-child(4) {
+  background: linear-gradient(360deg, transparent, #47f403);
+}
+
+.login-btn {
+  left: 5%;
+}
+
+.logout-btn {
+  margin-top: 80px;
+}
+
+.vote-btn {
+  margin: 20px;
+  width: calc(100vw - 60px);
+  /*
+  height: calc(100vh - 80px);
+  line-height: calc(100vh - 80px);*/
+  padding: 10px;
+  text-align: center;
+  font-size: 5vh;
+}
+
+input {
+    width: calc(100vw - 40px);
+    font-size: 5vh;
+    margin: 20px;
+    margin-bottom: 80px;
+    background: transparent;
+    color: #FFF;
+    border: 2px solid rgba(255,255,255,.25);
+    border-radius: 5px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+    color: #FFF;
+    text-shadow: 0 0 5px #47f403,
+                0 0 25px #47f403,
+                0 0 50px #47f403,
+                0 0 100px #47f403;
+    text-align: center;
+    font-size: 10vh;
+}
+
+.buttons {
+  position: absolute;
+  display: block;
+}
+
+.buttons a {
+  display: inline-block;
+}
+</style>
+
+<div style="width: 100vh; height: 100vh">
+
+    <table border="0" style="width: 100vw; height: 100vh">
+        <tr>
+            <td>
+
+                <h1>PoS</h1>
+
+                <br/>
+                <input type="number" placeholder="Price" onkeyup="fixUrl()" id="price"/>
+
+                <br/>
+            
+                <a href="p2pay://p2pay/https://metamask.app.link/dapp/https://hack.zurini.dev#10" class="vote-btn green neon-btn animated-neon" id="mainBtn">
+                            <span class="toAnimate"></span>
+                            <span class="toAnimate"></span>
+                            <span class="toAnimate"></span>
+                            <span class="toAnimate"></span>
+                            Sell 
+                        </a>
+            
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.4/ethers.umd.min.js" integrity="sha512-V3xRGsQMQ8CG4l2gVN44TCDmNY5cdlxbSvejrgmWxcLKHft0Q3XQDbeuJ9aot14mpNuRWGtI//WKraedDGNZ+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+const contractAddress = "0x506D428E0414478dadC772891028282831085331";
+const abiPath = 'abi.json'; // Ensure the ABI file is accessible
+
+async function loadABI() {
+    const response = await fetch(abiPath);
+    return await response.json();
+}
+var contract;
+
+function fixUrl(){
+    let val = document.querySelector("#price").value
+    document.querySelector("#mainBtn").setAttribute("href", `p2pay://p2pay/https://metamask.app.link/dapp/https://hack.zurini.dev#${val}`)
+}
+
+async function callContractFunction() {
+    $("#mainBtn").removeClass("animated-neon")
+    $(".toAnimate").each((i, obj) => {
+        $(obj).addClass("animated")
+    })
+    try {
+        // Connect to Ethereum provider
+        const provider = new ethers.BrowserProvider(window.ethereum);
+        await provider.send("eth_requestAccounts", []); // Request user to connect wallet
+        const signer = await provider.getSigner();
+
+        // Load ABI and create contract instance
+        const NFTAbi = await loadABI();
+        contract = new ethers.Contract(contractAddress, NFTAbi, signer);
+        
+        const tx = await contract.mint(); // Change to your function name
+        await tx.wait();  // Wait for transaction confirmation
+
+        alert("Minted: "+tx.hash)
+    } catch (error) {
+        console.error("Error calling contract function:", error);
+        alert("Error: " + error.message)
+    }
+}
+
+(function() {
+   // your page initialization code here
+   // the DOM will be available here
+
+})();
+</script>
