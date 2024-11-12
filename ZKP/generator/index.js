@@ -1,7 +1,7 @@
 const express = require('express')
 const { exec } = require('child_process');
 const app = express()
-const port = 3000
+const port = 3010
 
 app.get('/api', (req, res) => {
     exec('python main.py 100 250 -10 0 10', (err, stdout, stderr) => {

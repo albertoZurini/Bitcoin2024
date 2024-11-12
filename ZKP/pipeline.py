@@ -20,7 +20,8 @@ with open("verifier/proof.json") as f:
     json_data = json.loads(f.read())
 
 print("PROOF:")
+# arr = [json_data["proof"]["a"][0], json_data["proof"]["a"][1], json_data["proof"]["b"][0][0], json_data["proof"]["b"][1][1], json_data["proof"]["b"][0][0], json_data["proof"]["b"][1][1], json_data["proof"]["c"][0], json_data["proof"]["c"][1]]
 arr = [json_data["proof"]["a"], json_data["proof"]["b"], json_data["proof"]["c"]]
-print(arr)
+print(json.dumps(arr))
 print("INPUT:")
-print(json_data["inputs"])
+print(json.dumps(json_data["inputs"]))

@@ -137,7 +137,7 @@ html, body {
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --neon-size: 10px;
+  --neon-size: 2px;
 }
 .neon-btn span.animated:nth-child(1) {
   top: 0;
@@ -233,14 +233,14 @@ html, body {
                 <span class="toAnimate"></span>
                 <span class="toAnimate"></span>
                 <span class="toAnimate"></span>
-                Pay <span id="amount"></span>
+                Pay 123 <span style="display: none" id="amount"></span>
             </a>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.4/ethers.umd.min.js" integrity="sha512-V3xRGsQMQ8CG4l2gVN44TCDmNY5cdlxbSvejrgmWxcLKHft0Q3XQDbeuJ9aot14mpNuRWGtI//WKraedDGNZ+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-const contractAddress = "0x506D428E0414478dadC772891028282831085331";
+const contractAddress = "0x54Ad79bCC1BC8A6b64D326269ddB7D8Cb75B9554";
 const abiPath = 'abi.json'; // Ensure the ABI file is accessible
 
 async function loadABI() {
@@ -264,20 +264,22 @@ async function callContractFunction() {
         const NFTAbi = await loadABI();
         contract = new ethers.Contract(contractAddress, NFTAbi, signer);
         
-        const tx = await contract.mint(); // Change to your function name
+        const tx = await contract.makePayment("0x7A8E79dE63c29c3ee2375Cd3D2e90FEaA5aAf322", {value: 123}); // Change to your function name
         await tx.wait();  // Wait for transaction confirmation
 
-        alert("Minted: "+tx.hash)
+        alert("Transaction hash: "+tx.hash)
     } catch (error) {
         console.error("Error calling contract function:", error);
         alert("Error: " + error.message)
     }
 }
 
+var amount;
 (function() {
    // your page initialization code here
    // the DOM will be available here
 
-   document.querySelector("#amount").textContent = window.location.hash.substring(1)
+   amount = parseInt(window.location.hash.substring(1))
+   document.querySelector("#amount").textContent = amount
 })();
 </script>

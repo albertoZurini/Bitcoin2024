@@ -12,11 +12,10 @@ def encrypt(field data, field pk) -> field {
 
 def main(private field pk, 
 private field[5] cleartext_balances, field cleartext_sum, 
-field[5] enc_balances, field enc_sum) {
+field[5] enc_balances, field enc_sum) -> bool {
     // Check that all entries in the enc_balances are matching
     for u32 i in 0..5 {
         assert(encrypt(cleartext_balances[i], pk) == enc_balances[i]);
     }
-    assert(encrypt(cleartext_sum, pk) == enc_sum);
-    return;
+    return encrypt(cleartext_sum, pk) == enc_sum;
 }
